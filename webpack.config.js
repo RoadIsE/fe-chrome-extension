@@ -2,6 +2,7 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebapckPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WindiCSSWebpackPlugin = require("WindiCSS-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -71,8 +72,14 @@ module.exports = {
   // 设置引用的模块
   resolve: {
     extensions: [".tsx", ".ts", "js"],
+    alias: {
+      "@": path.join(__dirname, "..", "src"),
+    },
   },
   plugins: [
+    new WindiCSSWebpackPlugin({
+      virtualModulePath: "src",
+    }),
     isProduction &&
       new MiniCssExtractPlugin({
         filename: "static/css/[name].css",

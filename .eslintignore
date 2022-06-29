@@ -1,0 +1,11 @@
+dist
+/node_modules
+/webpack.config.js
+/postcss.config.js
+/.eslintrc.js
+/stylelint.config.js
+/.babelrc
+/commitlint.config.js
+/src/layout/utils/*
+/src/components/LoginModal
+/src/assets/css/*.less
