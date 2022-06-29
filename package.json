@@ -1,0 +1,39 @@
+{
+  "name": "fe-chrome-extension",
+  "version": "1.0.0",
+  "description": "webpack react chrome extension",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack --watch --progress --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --watch --progress --config webpack.config.js"
+  },
+  "author": "",
+  "devDependencies": {
+    "@types/chrome": "^0.0.190",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "less": "^4.1.3",
+    "less-loader": "^11.0.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
+    "postcss-preset-env": "^7.7.2",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not dead"
+  ]
+}
