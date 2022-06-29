@@ -1,6 +1,6 @@
 module.exports = {
 	root: true,
-	customSyntax: 'postcss-less',
+	// customSyntax: 'postcss-less',
 	extends: [
 		'stylelint-config-recommended',
 		'stylelint-config-css-modules',

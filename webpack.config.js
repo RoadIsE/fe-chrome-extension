@@ -41,7 +41,7 @@ module.exports = {
     popup: path.resolve("src/popup/popup.tsx"),
     options: path.resolve("src/options/options.tsx"),
     background: path.resolve("src/background/background.ts"),
-    contentScript: path.resolve("src/contentScript/contentScript.ts"),
+    contentScript: path.resolve("src/contentScript/contentScript.tsx"),
   },
   output: {
     path: isProduction ? path.resolve("dist") : undefined,
