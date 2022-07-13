@@ -1,54 +1,57 @@
 /* global chrome*/
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './contentScript.less'
 
-const handleStorage = () => {
-	const setting = { isClick: true }
-	chrome.storage.local.set(setting, () => {
-		console.log('storage', setting)
-	})
-}
-
+/**
+ * 获取popup中设置的storage
+ */
 const initStorage = () => {
 	chrome.storage.local.get(['inputValue'], result => {
 		console.log('init ', result.inputValue)
 	})
 }
 
+/**
+ * 发送消息到background
+ */
 const sendMessageToBackground = () => {
-	chrome.runtime.sendMessage({ payload: 'hello from content' }, () => console.log(2 + 2))
+	chrome.runtime.sendMessage({ payload: 'hello from content' }, () =>
+		console.log('content to background 发送消息成功！')
+	)
 }
 
-const onMessageFromBackground = () => {
-	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-		console.log('background-request', request)
-		console.log('background-sender', sender)
-		console.log('background-sendResponse', sendResponse)
-	})
-}
 const Content: React.FC = () => {
+	const [value, setValue] = useState('')
+
 	useEffect(() => {
-		initStorage()
-		sendMessageToBackground()
+		onMessage()
 	}, [])
+
+	/**
+	 * 接收消息
+	 */
+	const onMessage = () => {
+		chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+			console.log('request', request)
+			if (request.cmd === 'message from popup') setValue(request.value)
+		})
+	}
 
 	return (
 		<div className="crx-content">
-			<div className="rc-crx-floating-ball rc-w-16 rc-h-16" onClick={handleStorage}>
-				点击
+			<div className="crx-input">
+				<label>来自popup的消息</label>
+				<input
+					type="text"
+					placeholder="popup"
+					value={value}
+					onChange={e => setValue(e.target.value)}
+				/>
 			</div>
 		</div>
 	)
 }
-
-onMessageFromBackground()
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-//   if (request.cmd === "test") {
-//     alert(request.value);
-//     sendResponse("收到了popup的消息");
-//   }
-// });
 
 const app = document.createElement('div')
 app.id = 'crx-container'

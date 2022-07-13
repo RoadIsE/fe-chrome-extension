@@ -1,3 +1,4 @@
+/* global chrome*/
 import React from 'react'
 
 const linkList = [
@@ -7,22 +8,24 @@ const linkList = [
 	{ linkName: '新榜', link: 'https://www.newrank.cn/' }
 ]
 const Tool: React.FC = () => {
+	const handelLinkClick = (url: string) => {
+		chrome.tabs.create({ url: url })
+	}
 	return (
 		<div className="rc-w-auto">
-			<ul className="rc-flex">
+			<div className="rc-flex">
 				{linkList.map(item => {
 					return (
-						<li
+						<span
 							key={item.linkName}
-							className="rc-flex-1 rc-py-4 rc-text-center rc-sm:hover:text-green-500"
+							className="rc-flex-1 rc-py-4 rc-text-center <sm:hover:rc-text-green-500 rc-cursor-pointer"
+							onClick={() => handelLinkClick(item.link)}
 						>
-							<a href={item.link} target="_blank" rel="noreferrer">
-								{item.linkName}
-							</a>
-						</li>
+							{item.linkName}
+						</span>
 					)
 				})}
-			</ul>
+			</div>
 		</div>
 	)
 }

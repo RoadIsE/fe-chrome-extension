@@ -56,6 +56,8 @@
 		"windicss-webpack-plugin": "^1.7.3"
 	},
 	"dependencies": {
+		"blueimp-md5": "^2.19.0",
+		"lodash-es": "^4.17.21",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.3.0"

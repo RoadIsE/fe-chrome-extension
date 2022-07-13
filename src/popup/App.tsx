@@ -1,15 +1,13 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 
-// import "@/content";
-
 const activeLink = 'rc-text-green-500 rc-text-xl rc-no-underline rc-m-auto'
 const normalLink = 'rc-text-gray-500 rc-text-xl rc-no-underline rc-m-auto'
 
 const App: React.FC = () => {
 	return (
 		<div>
-			<nav className="rc-flex rc-py-2 rc-border-b rc-border-gray-500">
+			<nav className="rc-flex rc-py-2">
 				<NavLink
 					className={({ isActive }) => {
 						return isActive ? activeLink : normalLink
