@@ -1,28 +1,4 @@
 /* global chrome*/
-chrome.runtime.onInstalled.addListener(function () {
-	// chrome.action.disable();
-	// chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
-	//   let rule = {
-	//     conditions: [
-	//       new chrome.declarativeContent.PageStateMatcher({
-	//         pageUrl: {
-	//           // 适配域名为下列的网页
-	//           hostEquals: "test.main.newrank.cn",
-	//         },
-	//       }),
-	//     ],
-	//     actions: [
-	//       // ShowPageAction()已被废弃，这里做兼容
-	//       chrome.declarativeContent.ShowAction
-	//         ? new chrome.declarativeContent.ShowAction()
-	//         : new chrome.declarativeContent.ShowPageAction(),
-	//     ],
-	//   };
-	//   // 整合规则并执行
-	//   const rules = [rule];
-	//   chrome.declarativeContent.onPageChanged.addRules(rules);
-	// });
-})
 
 /**
  * 测试content发送消息到background

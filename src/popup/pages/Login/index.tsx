@@ -1,3 +1,4 @@
+/* global chrome*/
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -5,7 +6,12 @@ const Login: React.FC = () => {
 	const navigate = useNavigate()
 
 	const login = () => {
-		navigate('/setting')
+		const setting = { isLogin: true }
+		chrome.storage.local.set(setting, () => {
+			console.log('用户已登录', setting)
+		})
+
+		navigate('/')
 	}
 	return (
 		<div className="rc-flex rc-justify-center rc-items-center rc-flex-col rc-w-full rc-mt-12">

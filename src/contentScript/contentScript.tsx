@@ -33,7 +33,6 @@ const Content: React.FC = () => {
 	 */
 	const onMessage = () => {
 		chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-			console.log('request', request)
 			if (request.cmd === 'message from popup') setValue(request.value)
 		})
 	}

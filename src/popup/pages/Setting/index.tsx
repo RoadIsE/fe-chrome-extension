@@ -1,9 +1,12 @@
+/* global chrome*/
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Setting: React.FC = () => {
 	const navigate = useNavigate()
 	const logout = () => {
+		chrome.storage.local.remove('isLogin')
+		console.log('用户已退出')
 		navigate('/login')
 	}
 	return (
