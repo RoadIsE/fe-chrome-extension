@@ -12,8 +12,10 @@ const Setting: React.FC = () => {
 				<h3>用户</h3>
 			</div>
 			<footer className="rc-border-t-1 rc-flex rc-justify-center rc-items-center rc-mt-auto">
-				<img src="" alt="" />
-				<button className="rc-bg-green-500 rc-text-white rc-rounded rc-py-1" onClick={logout}>
+				<button
+					className="rc-bg-green-500 rc-text-white rc-rounded rc-py-2 rc-px-6"
+					onClick={logout}
+				>
 					退出登录
 				</button>
 			</footer>

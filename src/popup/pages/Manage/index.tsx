@@ -60,7 +60,7 @@ const Manage: React.FC = () => {
 						onChange={e => setValue(e.target.value)}
 					/>
 					<button
-						className="rc-bg-green-500 rc-text-white rc-rounded rc-py-1 rc-px-6 rc-ml-1"
+						className="rc-bg-green-500 rc-text-white rc-rounded rc-py-2 rc-px-6 rc-ml-1"
 						onClick={handleSubmitMessage}
 					>
 						发送

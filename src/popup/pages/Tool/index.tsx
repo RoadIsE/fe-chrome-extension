@@ -8,9 +8,6 @@ const linkList = [
 	{ linkName: '新榜', link: 'https://www.newrank.cn/' }
 ]
 const Tool: React.FC = () => {
-	const handelLinkClick = (url: string) => {
-		chrome.tabs.create({ url: url })
-	}
 	return (
 		<div className="rc-w-auto">
 			<div className="rc-flex">
@@ -19,7 +16,7 @@ const Tool: React.FC = () => {
 						<span
 							key={item.linkName}
 							className="rc-flex-1 rc-py-4 rc-text-center <sm:hover:rc-text-green-500 rc-cursor-pointer"
-							onClick={() => handelLinkClick(item.link)}
+							onClick={() => chrome.tabs.create({ url: item.link })}
 						>
 							{item.linkName}
 						</span>
