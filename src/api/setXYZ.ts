@@ -3,12 +3,18 @@ import { sampleSize } from 'lodash-es'
 
 const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
 
+interface Data {
+	nonce?: string
+	xyz?: string
+	[key: string]: any
+}
+
 /**
  * 添加xyz参数
  * @param {string} url 请求地址
  * @param {object} data 请求数据
  */
-export default function setXYZ(url, data = {}) {
+export default function setXYZ(url: string, data: any) {
 	let code = ''
 
 	if (url.indexOf('http://') == 0) {
@@ -18,13 +24,15 @@ export default function setXYZ(url, data = {}) {
 	} else {
 		code = url + '?AppKey=joker'
 	}
-	//let code = `${url}?AppKey=joker`;
-	let param = {}
-	for (let key of Object.keys(data).sort()) {
-		let value = data[key] === null ? '' : data[key]
-		param[key] = value
-		code += `&${key}=${value}`
-	}
+
+	const param: Data = {}
+	Object.keys(data)
+		.sort()
+		.forEach(key => {
+			const value = data[key] === null || typeof data[key] === 'undefined' ? '' : data[key]
+			param[key] = value
+			code += `&${key}=${value}`
+		})
 
 	// 随机取数大小为9的数组转为字符串
 	const nonce = sampleSize(arr, 9).join('')

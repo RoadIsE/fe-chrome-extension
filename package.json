@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"description": "webpack react chrome extension",
 	"scripts": {
-		"start": "cross-env NODE_ENV=development webpack --watch --progress --config webpack.config.js",
-		"build": "cross-env NODE_ENV=production webpack --watch --progress --config webpack.config.js",
+		"start": "cross-env NODE_ENV=development webpack --watch --config webpack.config.js",
+		"build": "cross-env NODE_ENV=production webpack --watch --config webpack.config.js",
 		"prepare": "husky install",
 		"lint": "eslint --ext .jsx,js,ts,tsx src/ --fix ./src --cache",
 		"lint-staged": "lint-staged",
@@ -21,7 +21,9 @@
 	"devDependencies": {
 		"@commitlint/cli": "^17.0.3",
 		"@commitlint/config-conventional": "^17.0.3",
+		"@types/blueimp-md5": "^2.18.0",
 		"@types/chrome": "^0.0.190",
+		"@types/lodash-es": "^4.17.6",
 		"@types/react": "^18.0.14",
 		"@types/react-dom": "^18.0.5",
 		"@typescript-eslint/eslint-plugin": "^5.30.0",
